@@ -59,4 +59,5 @@ RUN /bin/sh -c 'if [ ! -f /app/models/yolov8m.pt ]; then \
 
 ENV PYTHONPATH=/app
 
-CMD ["/app/start.sh"]
+CMD exec gunicorn --bind :${PORT:-9090} --workers ${WORKERS:-1} --threads ${THREADS:-4} --timeout 0 _wsgi:app
+#CMD ["/app/start.sh"]

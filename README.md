@@ -11,7 +11,8 @@ docker network create label-studio-network
 ### Build label-studio service
 
 ```cmd
-docker compose up --build
+mkdir mydata
+docker compose up
 ```
 
 ### API Tokens settings
@@ -61,7 +62,7 @@ set TEST_ENV=true (Windows)
 Build ML backend
 
 ```cmd
-docker-compose up --build
+docker compose -f docker-compose.ml-yolo-backend.yml up --build
 ```
 
 ## Connect label-studio service with ml-backend
@@ -91,7 +92,7 @@ You need paste xml config to **Labeling setup > Custom template**, during projec
 #### - Go to **Project settings => Model => Connect Model**  
 
     Enter a **Name** of model and **Backend URL**  
-    *Default ML-Backend URL - http://localhost:9090/*  
+    *Default ML-Backend URL - http://<Backend-IP>:9090/*  
     Enable **Interactive preannotations**!  
     Now you can check connection with ml-backend by sending a **Test Request** (Choose it in *** - burger menu)  
     ***200 - Connection is OK***
