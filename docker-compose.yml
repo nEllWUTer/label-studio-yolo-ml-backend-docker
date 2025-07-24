@@ -3,13 +3,14 @@ services:
     container_name: label-studio
     image: heartexlabs/label-studio:latest
     restart: unless-stopped
+    user: root
     ports:
       - "8080:8080"
     environment:
       - LOCAL_FILES_SERVING_ENABLED=true
     volumes:
       - ./mydata:/label-studio/data:rw
-    command: label-studio
+    command: chown -R 1001:root /label-studio/data
     networks:
       - label-studio-network
    
