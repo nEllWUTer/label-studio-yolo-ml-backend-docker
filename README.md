@@ -12,6 +12,7 @@ docker network create label-studio-network
 
 ```cmd
 mkdir mydata
+chmod 777 mydata (Для Linux)
 docker compose up
 ```
 
